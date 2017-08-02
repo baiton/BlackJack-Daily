@@ -27,14 +27,16 @@ function handValue (hand) {
       handTotal += 10;
     } else if ((card === "A") && (handTotal >= 11)) {
       handTotal += 1;
-    } else if  ((hand[0] === "8") && (hand[1] === "A")) {
-      handTotal += 4.5;
     } else if ((card === "A") && (handTotal < 11)) {
       handTotal += 11;
     } else {
       handTotal += parseInt(card,10);
     }
   }
+  if (handTotal > 21){
+    handTotal -= 10;
+  }
+
   console.log(handTotal);
   return handTotal;
 }
